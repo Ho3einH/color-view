@@ -1,27 +1,25 @@
-import { useState } from 'react';
-import ColorBox from './ColorBox'
-import AddColor from './AddColor'
+import Square from './Square'
+import Input from './Input'
+import { useState } from 'react'
 
 function App() {
-  const [colors, setColor] = useState([''])
-
-  const handleSubmit = (e) => {
-    e.preventDefault()
-    setColor('')
-  }
-
-  
-  
+  const [colorValue, setColorValue] = useState('')
+  const [hexValue, setHexValue] = useState('')
+  const [isDarkText, setIsDarkText] = useState(true)
 
   return (
-    <div className='App' >
-      <ColorBox
-        colors={colors}
+    <div className="App">
+      <Square
+        colorValue={colorValue}
+        hexValue={hexValue}
+        isDarkText={isDarkText}
       />
-      <AddColor
-        colors={colors}
-        setColor={setColor}
-        handleSubmit={handleSubmit}
+      <Input
+        colorValue={colorValue}
+        setColorValue={setColorValue}
+        setHexValue={setHexValue}
+        isDarkText={isDarkText}
+        setIsDarkText={setIsDarkText}
       />
     </div>
   );
